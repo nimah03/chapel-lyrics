@@ -28,16 +28,27 @@
     return pairs;
   }
 
+  function slideKey(slide) {
+    if (slide.kind === "title") return `title\n${slide.title}`;
+    return `lyric\n${slide.line1}\n${slide.line2}`;
+  }
+
   function buildSlides(songs) {
-    const slides = [{ kind: "blank" }];
-    songs.forEach((song, index) => {
+    const slides = [];
+    const seen = new Set();
+    const pushUnique = (slide) => {
+      const key = slideKey(slide);
+      if (seen.has(key)) return;
+      seen.add(key);
+      slides.push(slide);
+    };
+    songs.forEach((song) => {
       const title = (song.title || "").trim();
       const pairs = pairLines(song.lyrics);
       if (!title && pairs.length === 0) return;
-      if (index > 0 && slides[slides.length - 1].kind !== "blank") slides.push({ kind: "blank" });
-      if (title) slides.push({ kind: "title", title });
+      if (title) pushUnique({ kind: "title", title });
       pairs.forEach((pair) => {
-        slides.push({
+        pushUnique({
           kind: "lyric",
           line1: pair.line1,
           line2: pair.line2,
@@ -45,8 +56,6 @@
         });
       });
     });
-    if (slides.length === 1) return [];
-    if (slides[slides.length - 1].kind !== "blank") slides.push({ kind: "blank" });
     return slides;
   }
 

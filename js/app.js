@@ -96,7 +96,7 @@ function addSong(data) {
     <label>곡 제목
       <input class="song-title" type="text" placeholder="예: 나의 영원하신 기업" value="${escapeHtml(data?.title || "")}">
     </label>
-    <label>전체 가사 <span>한 줄에 한 소절. 두 줄씩 한 슬라이드로 나뉩니다.</span>
+    <label>전체 가사 <span>한 줄에 한 소절. 두 줄씩 한 슬라이드가 되고, 같은 가사는 한 번만 남습니다.</span>
       <textarea class="song-lyrics" rows="10" placeholder="나의 영원하신 기업&#10;생명보다 귀하다&#10;나의 갈 길 다가도록&#10;나와 동행하소서">${escapeHtml(data?.lyrics || "")}</textarea>
     </label>
   `;
