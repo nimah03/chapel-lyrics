@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>교육채플 가사 PPT</title>
+  <link rel="stylesheet" href="css/styles.css?v=4">
+  <style>
+    @font-face {
+      font-family: "GmarketSansMedium";
+      src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "GmarketSansBold";
+      src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+      font-weight: 700;
+      font-display: swap;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">CHAPEL LYRICS</p>
+      <h1>교육채플 가사</h1>
+      <p>전체 가사를 넣으면 두 줄씩 나눠, 원본과 같은 검정 화면·흰 글씨·G마켓 산스 형식으로 PPT를 만듭니다.</p>
+    </header>
+    <div class="layout">
+      <section>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>가사 입력</h2>
+            <button id="sampleBtn" class="text-btn" type="button">예시 넣기</button>
+          </div>
+          <div id="songs"></div>
+          <div class="actions">
+            <button id="addSongBtn" class="secondary" type="button">곡 추가</button>
+            <button id="downloadBtn" class="primary" type="button">PPT 내려받기</button>
+            <button id="shareBtn" class="secondary" type="button">PPT 공유</button>
+          </div>
+          <p class="note">PPT 글꼴은 G마켓 산스 TTF Medium / Bold 입니다. 그 글꼴이 설치된 컴퓨터에서 열면 원본과 같게 보입니다.</p>
+          <p id="status" role="status"></p>
+        </div>
+      </section>
+      <section>
+        <div class="panel-head">
+          <h2>미리보기</h2>
+          <p id="slideCount">슬라이드 0장</p>
+        </div>
+        <div id="preview" class="preview"></div>
+      </section>
+    </div>
+  </main>
+  <script src="vendor/pptxgen.bundle.js?v=4"></script>
+  <script src="js/pptx.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
+</body>
+</html>
